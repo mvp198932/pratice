@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      body {
+        background: black;
+        margin: 0;
+      }
+      #clock1 {
+        display: flex;
+        width: 740px;
+        height: 120px;
+        background: rgb(19, 26, 58,0.5);
+        margin: 20vh auto;
+        padding: 10px;
+      }
+      .ck{
+        display: inline-flex ;
+      }
+      .c1,.c2,.c3,.c4,.c5,.c6,.c7,.c8,.c9,.c0{
+      width: 100px;
+      height: 120px;
+      background: url('number.jpg');
+      display: inline-block;
+      }
+      .cc{
+      width: 58px;
+      height: 120px;
+      background: url('number.jpg');
+      display: inline-block;
+      background-position:60px ;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clock1">
+      <span class="ck">
+        <span id="ck1" class="c1"></span>
+        <span id="ck2" class="c2"></span>
+      </span>
+      <span class="cc"></span>
+      <span class="ck">
+        <span id="ck3" class="c3"></span>
+        <span id="ck4" class="c4"></span>
+      </span>
+      <span class="cc"></span>
+      <span class="ck">
+        <span id="ck5" class="c5"></span>
+        <span id="ck6" class="c6"></span>
+      </span>
+    </div>
+  </body>
+</html>
