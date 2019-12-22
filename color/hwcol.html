@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>color</title>
+    <!-- <script src="../sweetalert2.all.min.js"></script> -->
+  </head>
+  <style>
+    #sq {
+      width: 500px;
+      height: 400px;
+      border: 2px solid rgb(0, 255, 128);
+      background-color: wheat;
+      text-align: center;
+      font-size: 38px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: azure;
+      line-height: 400px;
+    }
+    #R {
+      width: 100px;
+      height: 30px;
+      font-size: larger;
+      background: rgba(216, 39, 39, 0.8);
+    }
+    #G {
+      width: 100px;
+      height: 30px;
+      font-size: larger;
+      background: #27d2d8cc;
+    }
+    #B {
+      width: 100px;
+      height: 30px;
+      font-size: larger;
+      background: rgba(86, 39, 216, 0.8);
+    }
+  </style>
+  <body>
+    <div id="sq"></div>
+    <div>
+      <input type="button" id="R"value="R" onclick="rgb_r('r')">      
+      <input type="range" min="0" max="255" id="R1" oninput="sba('r',this)">
+      <br>
+    </div>
+    <div>
+      <input type="button" id="G" value="G" onclick="rgb_r('g')">
+      <input type="range" min="0" max="255" id="G1" oninput="sba('g',this)">
+    </div>
+    <div>
+      <input type="button" id="B" value="B" onclick="rgb_r('b')">
+      <input type="range" min="0" max="255" id="B1" oninput="sba('b',this)">
+    </div>
+  </body>
+</html>
+
+<script>
+  function writeit(str){
+  str = str.toString(16);//r、g、b控制顏色只有16位 toString(16) 對這個字串
+  return str.length >=2 ?str:'0'+str;
+}
+function prcolor(){
+  document.getElementById("sq").style.backgroundColor = "rgb("+rgb.r+","+rgb.g+","+rgb.b+")";
+  document.getElementById("B1").value=rgb.b;
+  document.getElementById("R1").value=rgb.r;
+  document.getElementById("G1").value=rgb.g;
+  document.getElementById("sq").innerHTML = "#" + writeit(rgb.r) + writeit(rgb.g) + writeit(rgb.b);
+  document.getElementById("sq").style.color = "rgb(" + (255-rgb.r) + "," + (255-rgb.g) + "," + (255-rgb.b) + ")";
+};
+
+
+
+var rgb={r:0,g:0,b:0};
+
+function sba(clr,obj){
+  rgb[clr]=Number(obj.value);
+  prcolor();
+}
+
+
+
+
+    // function rgb_r(a) {
+    //   switch (a){
+    //    case 'r':
+    //     document.getElementById("sq").style.backgroundColor = "rgb(255,0,0)";
+    //     break;
+    //     case 'g':
+    //       document.getElementById("sq").style.backgroundColor = "rgb(0,255,0)";
+    //       console.log(a);
+    //       break;
+    //     case 'b':
+    //     document.getElementById("sq").style.backgroundColor = "rgb(0,0,255)";
+    //     break;
+    //   }
+    //   // document.getElementById("squre").style.backgroundColor = "rgb(r,g,b)";
+    // }
+
+
+</script>

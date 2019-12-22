@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>color</title>
+    <script src="../sweetalert2.all.min.js"></script>
+  </head>
+  <style>
+    #sq {
+      width: 500px;
+      height: 400px;
+      border: 2px solid rgb(0, 255, 128);
+      background-color: wheat;
+      text-align: center;
+      font-size: 40px;
+      display: block;
+      line-height: 400px;
+      text-transform: uppercase; /* 大寫 */
+    }
+
+    #R {
+      width: 100px;
+      height: 30px;
+      font-size: larger;
+      background: rgba(216, 39, 39, 0.8);
+    }
+    #G {
+      width: 100px;
+      height: 30px;
+      font-size: larger;
+      background: #27d2d8cc;
+    }
+    #B {
+      width: 100px;
+      height: 30px;
+      font-size: larger;
+      background: rgba(86, 39, 216, 0.8);
+    }
+  </style>
+  <body>
+    <div id="sq"></div>
+    <div>
+      <input type="button" id="R" value="R" onclick="rgb_r('r')" />
+      <br />
+      <input type="button" id="G" value="G" onclick="rgb_r('g')" />
+      <br />
+      <input type="button" id="B" value="B" onclick="rgb_r('b')" />
+      <input type="button" value="+" onmousedown="choose('ad')" onmouseup="clearInterval(run)" onmouseout="clearInterval(run)"/>
+      <input type="button" value="-" onmousedown="choose('sb')" onmouseup="clearInterval(run)" onmouseout="clearInterval(run)" />
+      <input type="button" value="?" onmousedown="choose('rand')" onmouseup="clearInterval(run)" onmouseout="clearInterval(run)" />
+    </div>
+  </body>
+</html>
+
+<script>
+  var a, b, g, r,run;
+  r = Math.floor(Math.random() * 256);
+  g = Math.floor(Math.random() * 256);
+  b = Math.floor(Math.random() * 256);
+
+  function choose(select) {
+    run =setInterval(function(){
+    switch (select) {
+      case 'ad':
+        if (r < 255) r++;
+        if (g < 255) g++;
+        if (b < 255) b++;
+        break;
+      case 'sb':
+        if (r > 0) r--;
+        if (g > 0) g--;
+        if (b > 0) b--;
+        break;
+      case 'rand':
+        r = Math.floor(Math.random() * 256);
+        g = Math.floor(Math.random() * 256);
+        b = Math.floor(Math.random() * 256);
+        break;
+    };
+  sq();
+  },30);
+  }
+
+  function stri(str) {
+    str = str.toString(16); //0~9 A~F  16進位法
+    return str.length >= 2 ? str : "0" + str;
+  }
+
+  function sq() {
+    document
+      .getElementById("sq")
+      .setAttribute("style", "background:rgb(" + r + "," + g + "," + b + ")");
+    document.getElementById("sq").style.color =
+      "rgb(" + (256 - r) + "," + (256 - g) + "," + (256 - b) + ")";
+    document.getElementById("sq").innerHTML = "#" + stri(r) + stri(g) + stri(b);
+  }
+
+  function rgb_r(a) {
+    switch (a) {
+      case "r":
+        Swal.fire({
+          title: "請選擇顏色範圍0~255", // icon: 'question',  他的圖片
+          input: "range",
+          inputAttributes: { min: 0, max: 255, step: 1 },
+          inputValue: `${r}`
+        }).then(function(result) {
+          re = result; // 為了取 r.value()值但是string, 所以用number轉換
+          r = Number(re.value);
+          sq();
+        });
+        break;
+      case "g":
+        Swal.fire({
+          title: "請選擇顏色範圍0~255",
+          input: "range",
+          inputAttributes: { min: 0, max: 255, step: 1 },
+          inputValue: `${g}`
+        }).then(function(result) {
+          re = result;
+          g = Number(re.value);
+          sq();
+        });
+        break;
+      case "b":
+        Swal.fire({
+          title: "請選擇顏色範圍0~255",
+          input: "range",
+          inputAttributes: { min: 0, max: 255, step: 1 },
+          inputValue: `${b}`
+        }).then(function(result) {
+          re = result;
+          b = Number(re.value);
+          sq();
+        });
+        break;
+    }
+  }
+
+
+
+
+
+</script>
