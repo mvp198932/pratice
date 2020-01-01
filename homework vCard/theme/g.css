@@ -1,0 +1,58 @@
+.card-main {
+  margin: 2.5% auto 0;
+  width: 350px;
+  box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.46);
+  font-family: "Microsoft JhengHei", "Apple LiGothic Medium", Arial, serif;
+  /* text-align: center; */
+  overflow: hidden;
+  /* color: #ccc; */
+  padding: 2.5% 5%;
+}
+
+/* .hr {
+  background: linear-gradient(90deg, #80808000, white, #80808000);
+  height: 1px;
+  width: 80%;
+  border: 20;
+} */
+
+.who {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  margin-top: 10px;
+  border: 6px solid #ccc;
+  margin: center;
+}
+.font {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 50px;
+  width: 150px; 
+}
+
+.clr {
+  color: initial;
+  background-color: #ffffcc;
+}
+.QR {
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+  float: right;
+  padding: 2% 2%;
+  color: black;
+}
+.box {
+  color: black;
+  font-weight: bold;
+  /* letter-spacing: 1px; */
+  float: left;
+}
+#triangle {
+  align-self: auto;
+  border-left: 75px solid transparent;
+  border-bottom: 15px solid red;
+  border-top: 20px solid red;
+  border-right: 75px solid transparent;
+}
